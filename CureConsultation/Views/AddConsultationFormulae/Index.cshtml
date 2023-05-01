@@ -1,0 +1,62 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    var id = ViewData["id"] as int?;
+    List<string> consultations = new List<string>();
+    foreach (DatabaseLayer.Consultation consultation in DatabaseManager.SelectAll<DatabaseLayer.Consultation>())
+    {
+        consultations.Add($"{consultation.Id} - {consultation.Name}");
+    }
+
+    SelectList selectList = new SelectList(consultations);
+
+}
+
+<div class="row my-4 ">
+    <div class="col-auto d-flex align-content-center">
+        <h1 class="display-5">Add new appointment</h1>
+    </div>
+    
+</div>
+
+<div class="row my-1 ">
+
+    @model AddConsultationFormulaeModel
+    @using (Html.BeginForm())
+    {
+
+        <div class="col-auto d-flex align-content-center my-2">
+
+            @Html.DropDownListFor(m => m.ConsultationId, selectList, "Select consultation", new { @class="form-control"})
+        </div>
+
+        <div class="col-auto d-flex align-content-center my-2">
+
+            <button type="submit" class="btn btn-info w-100">Search available appointments</button>
+        </div>
+        
+    }
+
+</div>
+
+@foreach (DatabaseLayer.Appointment appointment in DatabaseManager.Select<DatabaseLayer.Appointment>("SELECT * FROM Appointment WHERE userId is NULL AND consultationId = @id",
+               new Dictionary<string, object?>() { { "@id", id } }))
+{
+    <div class="row my-2 ">
+        <form class="card my-3">
+            <div class="card-header">
+                @appointment.Time
+            </div>
+
+            <ul class="list-group list-group-flush">
+                
+                <li class="list-group-item"><button name="unassignAppointmentButton" class="btn btn-success w-100" type="submit" asp-action="AssignAppointment" asp-controller="Home" asp-route-id="@appointment.Id">Assign</button></li>
+            </ul>
+
+        </form>
+    </div>
+
+}
+
+

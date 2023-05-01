@@ -1,0 +1,24 @@
+﻿<Window x:Class="AdministrationPanel.UserDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AdministrationPanel"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize"
+        
+        Title="Add new user" Height="293" Width="425" MinWidth="400" MinHeight="270">
+    <StackPanel Height="254" Width="400" Margin="5">
+        <TextBlock Text="Email" ></TextBlock>
+        <TextBox Name="EmailEntry" Margin="0, 5"></TextBox>
+        <TextBlock Text="Password" ></TextBlock>
+        <TextBox Name="PasswordEntry"  Margin="0, 5"></TextBox>
+        <TextBlock Text="First Name"></TextBlock>
+        <TextBox Name="FirstNameEntry"  Margin="0, 5"></TextBox>
+        <TextBlock Text="Last Name" ></TextBlock>
+        <TextBox Name="LastNameEntry"  Margin="0, 5"></TextBox>
+        <Button Content="Add" Width="100" Name="AddOrEditButton" Margin="40" Click="Save"></Button>
+
+    </StackPanel>
+</Window>

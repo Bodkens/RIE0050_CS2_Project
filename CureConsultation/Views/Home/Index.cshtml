@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "CureConsultation";
+    
+}
+
+    
+    <div class="row my-4 ">
+        <div class="col-auto d-flex align-content-center">
+            <h1 class="display-5">My appointments</h1>
+            
+        </div>
+        <form class="col-auto d-flex align-content-center">
+            <button class="btn btn-success" type="submit" asp-action="Index" asp-controller="AddConsultationFormulae" asp-route-id="0">Add new appointment</button>
+        </form>
+    </div>
+    
+
+    @foreach (DatabaseLayer.Appointment appointment in ViewBag.Appointments)
+    {
+
+        <form class="card my-3">
+            <div class="card-header">
+                @appointment.Consultation.Name
+            </div>
+
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">@appointment.Time</li>
+
+            <li class="list-group-item"><button name="unassignAppointmentButton" class="btn btn-danger w-100" type="submit" asp-action="UnassignAppointment" asp-route-id="@appointment.Id">Unassign</button></li>
+            </ul>
+
+        </form>
+    }
+
+

@@ -1,0 +1,66 @@
+﻿@{
+    ViewData["LoginData"] = "Login to CureConsultation";
+    var loginFailed  = ViewData["LoginFailed"] as int?;
+}
+
+
+@model LoginForm
+@using (Html.BeginForm())
+{
+    <div>
+        <form>
+                     
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="display-4">Welcome to CureConsultation</h1>
+                </div>
+                
+            </div>
+
+            @if (loginFailed == 1)
+            {
+                <div class="row">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="alert alert-danger w-100" role="alert">
+                                Login failed
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            }
+
+            <div class="row-6">
+                <div class="col-md-12">
+                    @Html.LabelFor((x => x.Email), new { @class = "form-label"} )
+                    @Html.ValidationMessageFor(x => x.Email)
+                    @Html.TextBoxFor(x => x.Email, new { @class = "form-control"})
+
+                </div>
+            </div>
+
+            <div class="row-6">
+                <div class="col-md-12">
+                    @Html.LabelFor(x => x.Password, new { @class = "form-label"})
+                    @Html.ValidationMessageFor(x => x.Password)
+                    @Html.TextBoxFor(x => x.Password, new { @class = "form-control", @type = "password"})
+
+                </div>
+            </div>
+
+            <div class="row-6 my-3">
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary w-100">Sign In</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    
+   
+}
+
+    
+
+

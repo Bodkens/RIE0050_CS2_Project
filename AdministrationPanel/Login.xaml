@@ -1,0 +1,33 @@
+﻿<Window x:Class="Administration.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Administration"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d"
+        Title="Login" Height="230" Width="400"
+        ResizeMode="NoResize">
+
+    <StackPanel>
+        <Label Background="#FFF1D4C1">
+            <TextBlock Margin="10, 0">
+                <TextBlock FontSize="15" FontStretch="Condensed">Welcome to CureConsultation Administration Panel</TextBlock>
+                
+            </TextBlock>
+        </Label>
+
+        <StackPanel Background="#FFC0E0FB" Margin="10, 10">
+            <TextBlock Text="Email" Margin="10, 5"/>
+            <TextBox Margin="10, 5" Name="EmailEntry"/>
+
+            <TextBlock Text="Password" Margin="10, 5"/>
+            <PasswordBox Margin="10, 5" Name="PasswordEntry"/>
+
+            <Button Content="Login" Width="100" Margin="10, 10" Click="BeginLogin"/>
+        </StackPanel>
+
+
+
+    </StackPanel>
+</Window>
