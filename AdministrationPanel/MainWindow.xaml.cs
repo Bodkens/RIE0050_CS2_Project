@@ -41,11 +41,11 @@ namespace AdministrationPanel
 
         private static object lockObject = new object();
 
-        public static string LogPath { get; set; } = "../../../../log/log.txt";
+        public static string LogPath { get; set; } = "../../../../AdministrationPanelLogs/log.txt";
 
         public User CurrentAdmin { get; set; }
         
-        public static void WriteLog(string line, string filePath= "../../../../log/log.txt")
+        public static void WriteLog(string line, string filePath= "../../../../AdministrationPanelLogs/log.txt")
         {
             Thread t = new Thread(() =>
             {

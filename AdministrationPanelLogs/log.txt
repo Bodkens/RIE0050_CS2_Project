@@ -1,0 +1,46 @@
+Administrator with email admin@curecons.com signed in at 2023-4-29 17:6:20
+Administrator with email admin@curecons.com signed out at 2023-4-29 17:6:21
+Administrator with email admin@curecons.com signed in at 2023-4-29 17:32:17
+Administrator with email admin@curecons.com signed out at 2023-4-29 17:33:20
+Administrator with email admin@curecons.com signed in at 2023-4-29 17:47:31
+ - test03@curecons.com - Martha Tompson inserted
+Administrator with email admin@curecons.com signed out at 2023-4-29 17:48:5
+Administrator with email admin@curecons.com signed in at 2023-4-29 17:58:29
+Appointment Id: 12; Appointment Time 2023-4-30 12:0:0 Appointed to consultaltation with ID 2, appointed to user with Id 2 updated
+Appointment Id: ; Appointment Time 2023-5-4 12:0:0 Appointed to consultaltation with ID 2, does not have an appointed user inserted
+Appointment Id: 20; Appointment Time 2023-5-4 12:0:0 Appointed to consultaltation with ID 2, appointed to user with Id 2 updated
+Appointment Id: 20; Appointment Time 2023-5-4 12:0:0 Appointed to consultaltation with ID 2, does not have an appointed user updated
+Administrator with email admin@curecons.com signed out at 2023-4-29 18:0:6
+Administrator with email admin@curecons.com signed in at 2023-4-29 18:12:35
+1 - admin@curecons.com - Bohdan Rieznikov updated
+Administrator with email admin@curecons.com signed out at 2023-4-29 18:13:4
+Administrator with email admin@curecons.com signed in at 2023-4-29 18:20:46
+Administrator with email admin@curecons.com signed in at 2023-4-29 18:24:25
+Appointment Id: 13; Appointment Time 2023-4-30 14:0:0 Appointed to consultaltation with ID 2, appointed to user with Id 2 updated
+Appointment Id: 13; Appointment Time 2023-4-30 14:0:0 Appointed to consultaltation with ID 2, does not have an appointed user updated
+Consultation Id: 2; Consultation Name: Consultation with Dr. Stephens updated
+Administrator with email admin@curecons.com signed out at 2023-4-29 18:24:49
+Administrator with email admin@curecons.com signed in at 2023-5-1 16:30:8
+Appointment Id: 14; Appointment Time 2023-4-30 11:0:0 Appointed to consultaltation with ID 2, does not have an appointed user updated
+Consultation Id: 2; Consultation Name: Consultation with Dr. Stephens updated
+Consultation Id: 3; Consultation Name: Consultation with Dr. Smith updated
+Consultation Id: 5; Consultation Name: Consultation with Dr. Tatcher updated
+Appointment Id: ; Appointment Time 2023-5-2 12:0:0 Appointed to consultaltation with ID 2, does not have an appointed user inserted
+Appointment Id: ; Appointment Time 2023-5-5 15:0:0 Appointed to consultaltation with ID 2, does not have an appointed user inserted
+Appointment Id: ; Appointment Time 2023-5-5 18:0:0 Appointed to consultaltation with ID 2, does not have an appointed user inserted
+Consultation Id: 2; Consultation Name: Consultation with Dr. Stephens updated
+Appointment Id: ; Appointment Time 2023-5-6 11:0:0 Appointed to consultaltation with ID 3, does not have an appointed user inserted
+Appointment Id: ; Appointment Time 2023-5-6 14:0:0 Appointed to consultaltation with ID 3, does not have an appointed user inserted
+Appointment Id: ; Appointment Time 2023-5-6 17:0:0 Appointed to consultaltation with ID 3, does not have an appointed user inserted
+Consultation Id: 3; Consultation Name: Consultation with Dr. Smith updated
+Appointment Id: ; Appointment Time 2023-5-7 13:0:0 Appointed to consultaltation with ID 5, does not have an appointed user inserted
+Appointment Id: ; Appointment Time 2023-5-7 16:0:0 Appointed to consultaltation with ID 5, does not have an appointed user inserted
+Consultation Id: 5; Consultation Name: Consultation with Dr. Tatcher updated
+Administrator with email admin@curecons.com signed out at 2023-5-1 16:34:48
+Administrator with email admin@curecons.com signed in at 2023-5-1 16:48:1
+Appointment Id: 28; Appointment Time 2023-5-7 16:0:0 Appointed to consultaltation with ID 5, appointed to user with Id 2 updated
+Consultation Id: 5; Consultation Name: Consultation with Dr. Tatcher updated
+Administrator with email admin@curecons.com signed out at 2023-5-1 16:48:19
+Administrator with email admin@curecons.com signed in at 2023-5-1 19:32:34
+5 - test01@mail.com - John Simpson updated
+Administrator with email admin@curecons.com signed out at 2023-5-1 19:32:50
