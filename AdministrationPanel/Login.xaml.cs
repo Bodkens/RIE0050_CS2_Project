@@ -24,6 +24,7 @@ namespace Administration
     {
         public Login()
         {
+            DatabaseManager.ConnectionString = @"Data Source=F:\VP\RIE0050_CS2_Project\Database\database.db;";
             InitializeComponent();
         }
 

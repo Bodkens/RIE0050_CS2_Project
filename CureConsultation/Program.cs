@@ -23,7 +23,7 @@ namespace CureConsultation
             builder.Services.AddSingleton<LoginService>();
             builder.Services.AddSingleton<AppointmentService>();
 
-            
+            DatabaseManager.ConnectionString = @"Data Source=F:\VP\RIE0050_CS2_Project\Database\database.db;";
 
             var app = builder.Build();
 

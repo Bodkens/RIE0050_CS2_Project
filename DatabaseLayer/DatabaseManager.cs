@@ -50,7 +50,7 @@ namespace DatabaseLayer
 
     public abstract class DatabaseManager
     {
-        private static string connectionString = @"Data Source=F:\VP\Database\database.db;";
+        private static string connectionString = @"Data Source=../../../../Database/database.db;";
         
         public static string ConnectionString
         {
