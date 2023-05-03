@@ -52,23 +52,14 @@ namespace Administration
 
             User admin = adminList[0];
 
-            Task loadUsers = new Task(() =>
-            {
-                users = DatabaseManager.Select<User>("SELECT * FROM USER WHERE IsAdmin = 0").ToList();
-            });
-            loadUsers.Start();
-            Task loadConsultations = new Task(() =>
-            {
-                consultations = DatabaseManager.SelectAll<Consultation>();
-            });
-
-            loadConsultations.Start();
+            
 
 
             MainWindow.WriteLog($"Administrator with email {EmailEntry.Text} signed in at {DateTime.Now.ToString("yyyy-M-d H:m:s")}", MainWindow.LogPath);
-            await loadConsultations;
-            await loadUsers;
-            MainWindow mainWindow = new MainWindow(users, consultations, admin);
+            Task<List<Consultation>> loadConsultations = DatabaseManager.SelectAllAsync<Consultation>();
+            Task<List<User>> loadUsers = DatabaseManager.SelectAllAsync<User>();
+            
+            MainWindow mainWindow = new MainWindow(await loadUsers, await loadConsultations, admin);
             mainWindow.Show();
             this.Close();
             }
