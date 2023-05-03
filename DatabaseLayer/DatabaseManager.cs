@@ -145,7 +145,7 @@ namespace DatabaseLayer
             }
         }
 
-        public static Task InsertAsync<T>(T obj)
+        public static async Task InsertAsync<T>(T obj)
         {
             using (SqliteConnection connection = new SqliteConnection(connectionString))
             {
@@ -225,7 +225,7 @@ namespace DatabaseLayer
 
                     command.CommandText = $"INSERT INTO {typeof(T).Name}({attributesLine}) VALUES({parametersLine})";
 
-                    return command.ExecuteNonQueryAsync();
+                    await command.ExecuteNonQueryAsync();
                 }
 
             }
@@ -591,7 +591,7 @@ namespace DatabaseLayer
             }
         }
 
-        public static Task DeleteAsync<T>(T obj)
+        public static async Task DeleteAsync<T>(T obj)
         {
             using (SqliteConnection connection = new SqliteConnection(connectionString))
             {
@@ -630,7 +630,7 @@ namespace DatabaseLayer
                 using (SqliteCommand command = new SqliteCommand($"DELETE FROM {typeof(T).Name} WHERE {keyName} = @id", connection))
                 {
                     command.Parameters.AddWithValue("@id", key.GetValue(obj) == null ? DBNull.Value : key.GetValue(obj));
-                    return command.ExecuteNonQueryAsync();
+                    await command.ExecuteNonQueryAsync();
                 }
             }
         }
@@ -739,7 +739,7 @@ namespace DatabaseLayer
             }
         }
 
-        public static Task UpdateAsync<T>(T obj)
+        public static async Task UpdateAsync<T>(T obj)
         {
             using (SqliteConnection connection = new SqliteConnection(connectionString))
             {
@@ -836,7 +836,7 @@ namespace DatabaseLayer
 
                     connection.Open();
 
-                    return command.ExecuteNonQueryAsync();
+                    await command.ExecuteNonQueryAsync();
                 }
             }
         }
@@ -861,7 +861,7 @@ namespace DatabaseLayer
             }
         }
 
-        public static Task ExecuteNonQuerryAsync(string sql, Dictionary<string, object?>? parameters = null)
+        public static async Task ExecuteNonQuerryAsync(string sql, Dictionary<string, object?>? parameters = null)
         {
             using (SqliteConnection connection = new SqliteConnection(connectionString))
             {
@@ -876,7 +876,7 @@ namespace DatabaseLayer
                         }
                     }
 
-                    return command.ExecuteNonQueryAsync();
+                    await command.ExecuteNonQueryAsync();
                 }
             }
         }
