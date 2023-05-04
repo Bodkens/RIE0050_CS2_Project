@@ -44,9 +44,9 @@ namespace DatabaseLayer
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
     public class ForeignKeyAttribute : Attribute
     {
-        public string Name { get; set; }
-        public string Key { get; set; }
-        public ForeignKeyAttribute(string name, string key) { this.Name = name; this.Key = key; }
+        public string AttributeName { get; set; }
+        public string PropertyName { get; set; }
+        public ForeignKeyAttribute(string attribute_name, string property_name) { this.AttributeName = attribute_name; this.PropertyName = property_name; }
     }
 
 
@@ -94,7 +94,7 @@ namespace DatabaseLayer
                         {
 
 
-                            var keyProp = properties[i].PropertyType.GetProperty(foreignKeyAttribute.Key);
+                            var keyProp = properties[i].PropertyType.GetProperty(foreignKeyAttribute.PropertyName);
 
                             if (properties[i].GetValue(obj) == null)
                             {
@@ -126,7 +126,7 @@ namespace DatabaseLayer
 
                         if (foreignKeyAttribute != null)
                         {
-                            attributeName = foreignKeyAttribute.Name;
+                            attributeName = foreignKeyAttribute.AttributeName;
                         }
 
                         if (i == properties.Length - 1)
@@ -189,7 +189,7 @@ namespace DatabaseLayer
                         {
 
 
-                            var keyProp = properties[i].PropertyType.GetProperty(foreignKeyAttribute.Key);
+                            var keyProp = properties[i].PropertyType.GetProperty(foreignKeyAttribute.PropertyName);
 
                             if (properties[i].GetValue(obj) == null)
                             {
@@ -221,7 +221,7 @@ namespace DatabaseLayer
 
                         if (foreignKeyAttribute != null)
                         {
-                            attributeName = foreignKeyAttribute.Name;
+                            attributeName = foreignKeyAttribute.AttributeName;
                         }
 
                         if (i == properties.Length - 1)
@@ -297,7 +297,7 @@ namespace DatabaseLayer
 
                             if (foreignKeyAttribute != null)
                             {
-                                attributeName = foreignKeyAttribute.Name;
+                                attributeName = foreignKeyAttribute.AttributeName;
                             }
 
                             if (reader.GetValue(reader.GetOrdinal(attributeName)).GetType().Name == "Int64")
@@ -379,7 +379,7 @@ namespace DatabaseLayer
 
                             if (foreignKeyAttribute != null)
                             {
-                                attributeName = foreignKeyAttribute.Name;
+                                attributeName = foreignKeyAttribute.AttributeName;
                             }
 
                             if (reader.GetValue(reader.GetOrdinal(attributeName)).GetType().Name == "Int64")
@@ -464,7 +464,7 @@ namespace DatabaseLayer
 
                             if (foreignKeyAttribute != null)
                             {
-                                attributeName = foreignKeyAttribute.Name;
+                                attributeName = foreignKeyAttribute.AttributeName;
                             }
 
                             if (reader.GetValue(reader.GetOrdinal(attributeName)).GetType().Name == "Int64")
@@ -548,7 +548,7 @@ namespace DatabaseLayer
 
                             if (foreignKeyAttribute != null)
                             {
-                                attributeName = foreignKeyAttribute.Name;
+                                attributeName = foreignKeyAttribute.AttributeName;
                             }
 
                             if (reader.GetValue(reader.GetOrdinal(attributeName)).GetType().Name == "Int64")
@@ -737,7 +737,7 @@ namespace DatabaseLayer
 
                         if (foreignKeyAttribute != null)
                         {
-                            attributeName = foreignKeyAttribute.Name;
+                            attributeName = foreignKeyAttribute.AttributeName;
 
                         }
 
@@ -756,7 +756,7 @@ namespace DatabaseLayer
 
                             if (foreignKeyAttribute != null)
                             {
-                                var keyProp = properties[i].PropertyType.GetProperty(foreignKeyAttribute.Key);
+                                var keyProp = properties[i].PropertyType.GetProperty(foreignKeyAttribute.PropertyName);
 
                                 if (properties[i].GetValue(obj) == null)
                                 {
@@ -847,7 +847,7 @@ namespace DatabaseLayer
 
                         if (foreignKeyAttribute != null)
                         {
-                            attributeName = foreignKeyAttribute.Name;
+                            attributeName = foreignKeyAttribute.AttributeName;
 
                         }
 
@@ -866,7 +866,7 @@ namespace DatabaseLayer
 
                             if (foreignKeyAttribute != null)
                             {
-                                var keyProp = properties[i].PropertyType.GetProperty(foreignKeyAttribute.Key);
+                                var keyProp = properties[i].PropertyType.GetProperty(foreignKeyAttribute.PropertyName);
 
                                 if (properties[i].GetValue(obj) == null)
                                 {
