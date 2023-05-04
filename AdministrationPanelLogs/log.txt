@@ -63,3 +63,18 @@ Administrator with email admin@curecons.com signed in at 2023-5-3 8:33:7
 Administrator with email admin@curecons.com signed out at 2023-5-3 8:33:9
 Administrator with email admin@curecons.com signed in at 2023-5-3 8:46:45
 Administrator with email admin@curecons.com signed out at 2023-5-3 8:46:52
+Administrator with email admin@curecons.com signed in at 2023-5-4 15:35:55
+8 - test03@curecons.com - Martha Franklin updated
+8 - test03@curecons.com - Martha Franklin updated
+8 - test03@curecons.com - Martha Franklin updated
+Appointment Id: 28; Appointment Time 2023-5-7 16:0:0 Appointed to consultaltation with ID 5, appointed to user with Id 2 updated
+Consultation Id: 5; Consultation Name: Consultation with Dr. Tatcher updated
+Appointment Id: 23; Appointment Time 2023-5-5 18:0:0 Appointed to consultaltation with ID 2, appointed to user with Id 5 updated
+Consultation Id: 2; Consultation Name: Consultation with Dr. Stephens updated
+Appointment Id: 28; Appointment Time 2023-5-7 16:0:0 Appointed to consultaltation with ID 5, does not have an appointed user updated
+Consultation Id: 5; Consultation Name: Consultation with Dr. Tatcher updated
+Consultation Id: 2; Consultation Name: Consultation with Dr. Stephens updated
+Consultation Id: ; Consultation Name: Consultation with Dr. Johnson inserted
+Appointment Id: ; Appointment Time 2023-5-6 15:0:0 Appointed to consultaltation with ID 6, does not have an appointed user inserted
+Consultation Id: 6; Consultation Name: Consultation with Dr. Johnson updated
+Administrator with email admin@curecons.com signed out at 2023-5-4 15:37:40

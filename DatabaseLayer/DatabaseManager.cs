@@ -26,6 +26,13 @@ namespace DatabaseLayer
         public AttributeNameAttribute(string name) { this.Name = name; }
     }
 
+    [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
+    public class TableNameAttribute : Attribute
+    {
+        public string Name { get; set; }
+        public TableNameAttribute(string name) { this.Name = name; }
+    }
+
 
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
     public class IgnoreAttribute : Attribute
@@ -110,11 +117,11 @@ namespace DatabaseLayer
 
                         string attributeName = properties[i].Name;
 
-                        string? customName = (properties[i].GetCustomAttribute(typeof(AttributeNameAttribute), true) as AttributeNameAttribute)?.Name;
+                        string? customAttributeName = (properties[i].GetCustomAttribute(typeof(AttributeNameAttribute), true) as AttributeNameAttribute)?.Name;
 
-                        if (customName != null)
+                        if (customAttributeName != null)
                         {
-                            attributeName = customName;
+                            attributeName = customAttributeName;
                         }
 
                         if (foreignKeyAttribute != null)
@@ -135,9 +142,18 @@ namespace DatabaseLayer
                         }
                     }
 
+                    string tableName = typeof(T).Name;
+
+                    string? customTableName = (typeof(T).GetCustomAttribute(typeof(TableNameAttribute), true) as TableNameAttribute)?.Name;
+
+                    if (customTableName != null)
+                    {
+                        tableName = customTableName;
+                    }
+
                     connection.Open();
 
-                    command.CommandText = $"INSERT INTO {typeof(T).Name}({attributesLine}) VALUES({parametersLine})";
+                    command.CommandText = $"INSERT INTO {tableName}({attributesLine}) VALUES({parametersLine})";
 
                     command.ExecuteNonQuery();
                 }
@@ -196,11 +212,11 @@ namespace DatabaseLayer
 
                         string attributeName = properties[i].Name;
 
-                        string? customName = (properties[i].GetCustomAttribute(typeof(AttributeNameAttribute), true) as AttributeNameAttribute)?.Name;
+                        string? customAttributeName = (properties[i].GetCustomAttribute(typeof(AttributeNameAttribute), true) as AttributeNameAttribute)?.Name;
 
-                        if (customName != null)
+                        if (customAttributeName != null)
                         {
-                            attributeName = customName;
+                            attributeName = customAttributeName;
                         }
 
                         if (foreignKeyAttribute != null)
@@ -221,9 +237,17 @@ namespace DatabaseLayer
                         }
                     }
 
+                    string tableName = typeof(T).Name;
+
+                    string? customTableName = (typeof(T).GetCustomAttribute(typeof(TableNameAttribute), true) as TableNameAttribute)?.Name;
+
+                    if (customTableName != null)
+                    {
+                        tableName = customTableName;
+                    }
                     connection.Open();
 
-                    command.CommandText = $"INSERT INTO {typeof(T).Name}({attributesLine}) VALUES({parametersLine})";
+                    command.CommandText = $"INSERT INTO {tableName}({attributesLine}) VALUES({parametersLine})";
 
                     await command.ExecuteNonQueryAsync();
                 }
@@ -403,7 +427,16 @@ namespace DatabaseLayer
 
                 List<T> selected = new List<T>();
 
-                using (SqliteCommand command = new SqliteCommand($"SELECT * FROM {typeof(T).Name}", connection))
+                string tableName = typeof(T).Name;
+
+                string? customTableName = (typeof(T).GetCustomAttribute(typeof(TableNameAttribute), true) as TableNameAttribute)?.Name;
+
+                if (customTableName != null)
+                {
+                    tableName = customTableName;
+                }
+
+                using (SqliteCommand command = new SqliteCommand($"SELECT * FROM {tableName}", connection))
                 {
                     connection.Open();
 
@@ -478,7 +511,16 @@ namespace DatabaseLayer
 
                 List<T> selected = new List<T>();
 
-                using (SqliteCommand command = new SqliteCommand($"SELECT * FROM {typeof(T).Name}", connection))
+                string tableName = typeof(T).Name;
+
+                string? customTableName = (typeof(T).GetCustomAttribute(typeof(TableNameAttribute), true) as TableNameAttribute)?.Name;
+
+                if (customTableName != null)
+                {
+                    tableName = customTableName;
+                }
+
+                using (SqliteCommand command = new SqliteCommand($"SELECT * FROM {tableName}", connection))
                 {
                     connection.Open();
 
@@ -580,10 +622,17 @@ namespace DatabaseLayer
                     keyName = customKeyName;
                 }
 
+                string tableName = typeof(T).Name;
 
+                string? customTableName = (typeof(T).GetCustomAttribute(typeof(TableNameAttribute), true) as TableNameAttribute)?.Name;
+
+                if (customTableName != null)
+                {
+                    tableName = customTableName;
+                }
                 connection.Open();
 
-                using (SqliteCommand command = new SqliteCommand($"DELETE FROM {typeof(T).Name} WHERE {keyName} = @id", connection))
+                using (SqliteCommand command = new SqliteCommand($"DELETE FROM {tableName} WHERE {keyName} = @id", connection))
                 {
                     command.Parameters.AddWithValue("@id", key.GetValue(obj) == null ? DBNull.Value : key.GetValue(obj));
                     command.ExecuteNonQuery();
@@ -627,7 +676,16 @@ namespace DatabaseLayer
 
                 connection.Open();
 
-                using (SqliteCommand command = new SqliteCommand($"DELETE FROM {typeof(T).Name} WHERE {keyName} = @id", connection))
+                string tableName = typeof(T).Name;
+
+                string? customTableName = (typeof(T).GetCustomAttribute(typeof(TableNameAttribute), true) as TableNameAttribute)?.Name;
+
+                if (customTableName != null)
+                {
+                    tableName = customTableName;
+                }
+
+                using (SqliteCommand command = new SqliteCommand($"DELETE FROM {tableName} WHERE {keyName} = @id", connection))
                 {
                     command.Parameters.AddWithValue("@id", key.GetValue(obj) == null ? DBNull.Value : key.GetValue(obj));
                     await command.ExecuteNonQueryAsync();
@@ -641,8 +699,15 @@ namespace DatabaseLayer
         {
             using (SqliteConnection connection = new SqliteConnection(connectionString))
             {
+                string tableName = typeof(T).Name;
 
-                using (SqliteCommand command = new SqliteCommand($"UPDATE {typeof(T).Name} SET ", connection))
+                string? customTableName = (typeof(T).GetCustomAttribute(typeof(TableNameAttribute), true) as TableNameAttribute)?.Name;
+
+                if (customTableName != null)
+                {
+                    tableName = customTableName;
+                }
+                using (SqliteCommand command = new SqliteCommand($"UPDATE {tableName} SET ", connection))
                 {
                     PropertyInfo? key = null;
 
@@ -655,11 +720,11 @@ namespace DatabaseLayer
 
                         string attributeName = properties[i].Name;
 
-                        string? customName = (properties[i].GetCustomAttribute(typeof(AttributeNameAttribute), true) as AttributeNameAttribute)?.Name;
+                        string? customAttributeName = (properties[i].GetCustomAttribute(typeof(AttributeNameAttribute), true) as AttributeNameAttribute)?.Name;
 
-                        if (customName != null)
+                        if (customAttributeName != null)
                         {
-                            attributeName = customName;
+                            attributeName = customAttributeName;
                         }
 
                         if (Attribute.IsDefined(properties[i], typeof(KeyAttribute)))
@@ -743,8 +808,16 @@ namespace DatabaseLayer
         {
             using (SqliteConnection connection = new SqliteConnection(connectionString))
             {
+                string tableName = typeof(T).Name;
 
-                using (SqliteCommand command = new SqliteCommand($"UPDATE {typeof(T).Name} SET ", connection))
+                string? customTableName = (typeof(T).GetCustomAttribute(typeof(TableNameAttribute), true) as TableNameAttribute)?.Name;
+
+                if (customTableName != null)
+                {
+                    tableName = customTableName;
+                }
+
+                using (SqliteCommand command = new SqliteCommand($"UPDATE {tableName} SET ", connection))
                 {
                     PropertyInfo? key = null;
 
@@ -757,11 +830,11 @@ namespace DatabaseLayer
 
                         string attributeName = properties[i].Name;
 
-                        string? customName = (properties[i].GetCustomAttribute(typeof(AttributeNameAttribute), true) as AttributeNameAttribute)?.Name;
+                        string? customAttributeName = (properties[i].GetCustomAttribute(typeof(AttributeNameAttribute), true) as AttributeNameAttribute)?.Name;
 
-                        if (customName != null)
+                        if (customAttributeName != null)
                         {
-                            attributeName = customName;
+                            attributeName = customAttributeName;
                         }
 
                         if (Attribute.IsDefined(properties[i], typeof(KeyAttribute)))

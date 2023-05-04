@@ -4,7 +4,7 @@
 @{
     var id = ViewData["id"] as int?;
     List<string> consultations = new List<string>();
-    foreach (DatabaseLayer.Consultation consultation in DatabaseManager.SelectAll<DatabaseLayer.Consultation>())
+    foreach (DatabaseLayer.Consultation consultation in DatabaseLayer.DatabaseManager.SelectAll<DatabaseLayer.Consultation>())
     {
         consultations.Add($"{consultation.Id} - {consultation.Name}");
     }
@@ -40,7 +40,7 @@
 
 </div>
 
-@foreach (DatabaseLayer.Appointment appointment in DatabaseManager.Select<DatabaseLayer.Appointment>("SELECT * FROM Appointment WHERE userId is NULL AND consultationId = @id",
+@foreach (DatabaseLayer.Appointment appointment in DatabaseLayer.DatabaseManager.Select<DatabaseLayer.Appointment>("SELECT * FROM Appointment WHERE userId is NULL AND consultationId = @id",
                new Dictionary<string, object?>() { { "@id", id } }))
 {
     <div class="row my-2 ">
